@@ -1,3 +1,3 @@
-mkdir $1
+mkdir -p $1
 cp -r tmp/* $1
 
