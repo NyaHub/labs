@@ -1,31 +1,28 @@
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
+#include <string>
+
+using namespace std;
 
 int main(){
-	char str[40];
+	string str;
+
 	printf("Enter string: ");
-	scanf("%s", str);
-	int len = strlen(str);
-	bool bad = false;
-	for(int i = 0; i < len; i++){
-		if(str[i]!='0' |
-		   str[i]!='1' |
-		   str[i]!='2' |
-		   str[i]!='3' |
-		   str[i]!='4' |
-		   str[i]!='5' |
-		   str[i]!='6' |
-		   str[i]!='7' |
-		   str[i]!='8' |
-		   str[i]!='9' |
-		   str[i]!='+' |
-		   str[i]!='-' |
-		   str[i]!='/' |
-		   str[i]!='*'){
-			bad = true;
-			break;
+	getline(cin, str);
+
+	int bad = 0;
+	const string verify = "0123456789+-=/*()";
+	for(auto &s : str){
+		for(auto &v : verify){
+			if(s==v){
+				bad = 0;
+				break;
+			}else{bad = 1;}
 		}
+		if(bad==1)break;
 	}
-	printf(!bad? "Ok.\n" : "Not Ok!!!\n");
+
+	printf( bad==0 ? "Ok.\n" : "Not Ok!!!\n");
 	return 0;
 }
