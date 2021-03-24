@@ -6,4 +6,5 @@ run:
 	bin/main
 
 clear:
+	clear
 	rm -Rf bin

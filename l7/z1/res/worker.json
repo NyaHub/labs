@@ -1,1 +1,10 @@
-{"name":"Jhon","surname":"Miller","age":30,"sex":"man", "addres":{"city":"Oklahoma","street":"First Miller","house":"6", "apartament":"12"}}
+{"addres":{"apartament":"23","city":"Penza","house":"12a","street":"Horoshaya"},"age":65,"name":"Vladimir","sex":"man","surname":"Putin"}
+{"addres":{"apartament":"12","city":"Oklahoma","house":"6","street":"First Miller"},"age":30,"name":"Jhon","sex":"man","surname":"Miller"}
+{"addres":{"apartament":"5","city":"Penza","house":"12a","street":"Horoshaya"},"age":29,"name":"Anna","sex":"woman","surname":"Putina"}
+{"addres":{"apartament":"23","city":"Muhosransk","house":"6","street":"Kek"},"age":30,"name":"kirilov","sex":"woman","surname":"Mark"}
+{"addres":{"apartament":"5","city":"Tver","house":"13b","street":"Tverskaya"},"age":17,"name":"arkasha","sex":"man","surname":"Ivanov"}
+{"addres":{"apartament":"42","city":"Oklahoma","house":"6","street":"First Miller"},"age":30,"name":"Ilon","sex":"man","surname":"Musk"}
+{"addres":{"apartament":"41","city":"Orsk","house":"10a","street":"Molodyojnaya"},"age":35,"name":"Jopka","sex":"woman","surname":"Ivanova"}
+{"addres":{"apartament":"3","city":"Magadan","house":"No","street":"No"},"age":145,"name":"Joseph","sex":"man","surname":"Stalin"}
+{"addres":{"apartament":"23","city":"Penza","house":"14b","street":"Ulitsa"},"age":35,"name":"Chelovek","sex":"man","surname":"Mujik"}
+{"addres":{"apartament":"312","city":"Oklahoma","house":"6","street":"First Miller"},"age":30,"name":"Alla","sex":"woman","surname":"Miller"}
