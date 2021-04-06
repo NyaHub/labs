@@ -3,6 +3,9 @@
 #include <cmath>
 #include <ctime>
 #include <fstream>
+#include <stdio.h>
+#include <vector>
+#include <iterator>
 
 using namespace std;
 
@@ -14,34 +17,53 @@ int main(){
 
 	size_t mmmlen, wwwlen;
 
+	int * mmm;
+	int * www;
+
 	string fname;
 	cout << "Enter file name: "; cin >> fname;
+
+	const int intSize = sizeof(int);
 
 	if(fname==""){
 		cout << "No given file name" << endl;
 		return 0;
 	}
 
-	ofstream file(fname, ios::in);
-	if(!file.isopen()){
+	ifstream file(fname);
+	if(!file.good()){
+		file.close();
+		ofstream file(fname);
+
 		cout << "Enter len of mmm array: "; cin >> mmmlen;
 		cout << "Enter len of www array: "; cin >> wwwlen;
 
-		int mmm[mmmlen];
-		int www[wwwlen];
-		for(int i=0; i<max(mmmlen, wwwlen); i++){
-			if(i<wwwlen) www[i] = rand()%100+50;
-			if(i<mmmlen) mmm[i] = rand()%100+50;
+		file << mmmlen << endl << wwwlen << endl;
+
+		mmm = (int *)calloc(mmmlen, intSize);
+		www = (int *)calloc(wwwlen, intSize);
+		cout<<"for" << endl;
+		for(int i=0; i<mmmlen + wwwlen; i++){
+			int n = rand()%100+50;
+			file << n << endl;
+			if(i<mmmlen) mmm[i] = n;
+			if(i>=mmmlen) www[i-mmmlen] = n;
 		}
 	}else{
-		//read len
-		int mmm[mmmlen];
-		int www[wwwlen];
-		for(int i=0; i<max(mmmlen, wwwlen); i++){
-			if(i<wwwlen) www[i] = rand()%100+50;
-			if(i<mmmlen) mmm[i] = rand()%100+50;
+		string tmp;
+
+		getline(file,tmp);mmmlen = stoi(tmp);
+		getline(file,tmp);wwwlen = stoi(tmp);
+
+		mmm = (int *)calloc(mmmlen, intSize);
+		www = (int *)calloc(wwwlen, intSize);
+		for(int i=0; i<mmmlen + wwwlen; i++){
+			getline(file,tmp);
+			if(i<mmmlen) mmm[i] = stoi(tmp);
+			if(i>=mmmlen) www[i-mmmlen] = stoi(tmp);
 		}
 	}
+	file.close();
 	cout << "mmm:" << endl;
 	print_arr(mmm, mmmlen);
 	cout << "www:" << endl;

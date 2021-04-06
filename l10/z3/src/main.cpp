@@ -2,14 +2,28 @@
 #include <stdio.h>
 #include <string.h>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
 int main(){
 	string str;
+	string fname;
 
-	printf("Enter string: ");
-	getline(cin, str);
+	printf("Enter file name: ");
+	cin >> fname;
+	if(fname==""){
+		cout << "No file name give" << endl;
+		return 0;
+	}
+
+	ifstream file(fname);
+	if(!file.good()){
+		cout << "File not found" << endl;
+	}else{
+		getline(file, str);
+	}
+	file.close();
 
 	int bad = 0;
 	const string verify = "0123456789+-=/*()";
